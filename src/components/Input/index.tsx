@@ -4,8 +4,6 @@ import { Controller, UseFormSetValue, useFormContext } from "react-hook-form";
 
 type Props = {
   label?: string; // The label text for the input field
-  icon?: React.ReactNode; // The icon element to display
-  iconRight?: React.ReactNode; // The icon element to display
   containerClassName?: string;
   name: string;
   setValue?: UseFormSetValue<any>;
@@ -13,8 +11,6 @@ type Props = {
 
 const Input: FC<Props> = ({
   label,
-  icon,
-  iconRight,
   name,
   disabled,
   containerClassName,
@@ -43,14 +39,6 @@ const Input: FC<Props> = ({
               {label}
             </label>
             <div className="flex relative items-center">
-              {icon && (
-                <span className="absolute left-1 z-50 bottom-1">{icon}</span>
-              )}
-              {iconRight && (
-                <span className="absolute right-1 z-50 bottom-1">
-                  {iconRight}
-                </span>
-              )}
               <input
                 {...props}
                 {...field}
@@ -62,7 +50,6 @@ const Input: FC<Props> = ({
                 }}
                 className={clsx(
                   "flex-1 text-body-1",
-                  icon && "pl-9",
                   disabled && "text-grey-2"
                 )}
               />

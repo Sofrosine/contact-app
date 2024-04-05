@@ -17,6 +17,8 @@ const Button: FC<Props> = ({
   return (
     <button
       {...props}
+      data-testid="button"
+      disabled={disabled}
       className={clsx(
         loading && "flex justify-center",
         disabled &&
